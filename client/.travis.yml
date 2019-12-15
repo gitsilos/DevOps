@@ -4,6 +4,7 @@ services:
   - docker
 
 before_install:
+  - gem install bundler
   - docker build -t k8s\client -f Dockerfile.dev .
 
 script:
