@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t k8s/client -f Dockerfile.dev .
+  - docker build -t k8s/client -f Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true -t k8s/client npm run test -- --coverages
