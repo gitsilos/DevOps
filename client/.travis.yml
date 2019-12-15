@@ -5,8 +5,8 @@ services:
 
 before_install:
   - gem install bundler
-  - docker build -t k8s\client -f Dockerfile.dev .
+  - docker build -t k8s/client -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true -t k8s\client npm run test -- --coverages
+  - docker run -e CI=true -t k8s/client npm run test -- --coverages
 
