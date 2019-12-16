@@ -9,3 +9,16 @@ before_install:
 script:
   - docker run -e CI=true -t k8s/client npm run test
 
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "k8sDocker"
+  environment: "K8sdocker-env"
+  bucket_name: "elasticbeanstalk-us-east-1-908665615728"
+  bucket_path: "k8sDocker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
